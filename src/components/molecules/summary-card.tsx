@@ -19,10 +19,10 @@ export const SummaryCard = ({ children, title, icon }: SummaryCardProps) => {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center gap-x-2.5 p-4 pb-2.5">
-        <Button variant="ghost" size="icon" className="bg-hrms-primary/5">
+        <Button variant="ghost" size="icon" className="bg-primary/5">
           {icon}
         </Button>
-        <CardTitle className="!m-0 p-4 px-0 font-normal leading-[1.375rem] text-hrms-dark">
+        <CardTitle className="!m-0 p-4 px-0 font-normal leading-[1.375rem] text-secondary-foreground">
           {title}
         </CardTitle>
       </CardHeader>
@@ -31,7 +31,7 @@ export const SummaryCard = ({ children, title, icon }: SummaryCardProps) => {
       </CardContent>
       <Separator />
       <CardFooter className="px-4 py-2.5">
-        <p className="text-xs font-light text-hrms-gray">
+        <p className="text-xs font-light text-secondary">
           Update: July 16, 2023
         </p>
       </CardFooter>

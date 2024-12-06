@@ -18,10 +18,10 @@ export const ScheduleCalendar = () => {
   return (
     <Card className="relative h-full">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 p-5">
-        <CardTitle className="text-lg font-semibold text-hrms-dark">
+        <CardTitle className="text-lg font-semibold text-secondary-foreground">
           My Schedule
         </CardTitle>
-        <Button variant="ghost" size="icon" className="bg-hrms-primary/5">
+        <Button variant="ghost" size="icon" className="bg-primary/5">
           <Calendar01 />
         </Button>
       </CardHeader>

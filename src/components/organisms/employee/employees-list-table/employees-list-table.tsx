@@ -2,11 +2,24 @@
 
 import {
   ColumnDef,
+  ColumnFiltersState,
   flexRender,
   getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 
+import { AddCircleIcon } from "@/components/atoms/icon";
+import { Search as SearchIcon } from "@/components/atoms/icons";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -16,9 +29,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useState } from "react";
+
+import { PageSize } from "@/components/molecules/page-size";
+
+import { PaginationButton } from "@/components/molecules/pagination-button";
+import { EmployeesListFilter } from "./employees-lilst-filter";
+import { Search } from "@/components/molecules/search";
 
 interface DataTableProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -26,29 +44,62 @@ interface DataTableProps<TData, TValue>
   data: TData[];
 }
 
-export const AttendanceOVTable = <TData, TValue>({
+export const EmployeesListTable = <TData, TValue>({
   columns,
   data,
   className,
   ...props
 }: DataTableProps<TData, TValue>) => {
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 10,
+  });
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    onColumnFiltersChange: setColumnFilters,
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination,
+    state: {
+      columnFilters,
+      pagination,
+    },
   });
 
   return (
     <Card className={cn(className)}>
-      <CardHeader className="flex flex-row items-center justify-between p-5 pb-0">
-        <CardTitle className="text-lg text-secondary-foreground">
-          Attendance Overview
-        </CardTitle>
-        <Link href="/">
-          <Button variant="outline" size="sm">
-            View All
-          </Button>
-        </Link>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 p-5">
+        <div className="relative flex flex-1 flex-shrink-0">
+          <Input
+            placeholder="Search"
+            value={
+              (table.getColumn("employeeName")?.getFilterValue() as string) ??
+              ""
+            }
+            onChange={(event) =>
+              table
+                .getColumn("employeeName")
+                ?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm rounded-[10px] border border-hrms-gray/25 pl-12 focus:!ring-hrms-gray/40"
+          />
+          <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2" />
+        </div>
+        {/* <Search /> */}
+
+        <div className="inline-flex gap-x-5">
+          <Link href="/employees/add">
+            <Button>
+              <AddCircleIcon />
+              <span>Add New Employee</span>
+            </Button>
+          </Link>
+          <EmployeesListFilter />
+        </div>
       </CardHeader>
       <CardContent className="p-5 pt-0">
         <Table>
@@ -104,6 +155,13 @@ export const AttendanceOVTable = <TData, TValue>({
           </TableBody>
         </Table>
       </CardContent>
+      <CardFooter className="flex items-center justify-between p-5 !pt-0">
+        <PageSize
+          pageSize={table.getState().pagination.pageSize}
+          onChange={(value) => table.setPageSize(value)}
+        />
+        <PaginationButton table={table} />
+      </CardFooter>
     </Card>
   );
 };

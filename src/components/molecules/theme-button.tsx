@@ -10,7 +10,7 @@ export const ThemeButton = () => {
         <span className="font-normal">Light</span>
       </Button>
       <Button variant="ghost">
-        <DarkTheme className="!text-hrms-dark" />
+        <DarkTheme className="!text-secondary-foreground" />
         <span className="font-normal">Dark</span>
       </Button>
     </div>

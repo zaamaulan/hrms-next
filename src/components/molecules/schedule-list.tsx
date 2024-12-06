@@ -37,15 +37,15 @@ export const ScheduleList = () => {
       className="absolute flex max-h-[calc(100vh-20rem)] flex-col overflow-y-auto"
       type="scroll"
     >
-      <ul className="flex flex-col gap-y-5 mr-4">
+      <ul className="mr-4 flex flex-col gap-y-5">
         {schedules.map((schedule) => (
           <li key={schedule.date} className="flex flex-col gap-y-5">
-            <p className="text-hrms-dark">{schedule.date}</p>
+            <p className="text-secondary-foreground">{schedule.date}</p>
             <ul className="flex flex-col gap-y-5">
               {schedule.events.map((event) => (
                 <li
                   key={event.time}
-                  className="grid h-full grid-cols-[auto_auto_1fr] items-center gap-x-5"
+                  className="grid h-full grid-cols-[.6fr_auto_1fr] items-center gap-x-5"
                 >
                   <p className="text-xl font-semibold">{event.time}</p>
                   <Separator

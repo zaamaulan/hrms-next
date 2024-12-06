@@ -139,8 +139,12 @@ const AttendanceOVChart = memo(() => {
         </Select>
       </CardHeader>
       <CardContent>
-        <ChartContainer  config={chartConfig}>
-          <BarChart accessibilityLayer style={{ height: "100%" }} data={attendanceData}>
+        <ChartContainer config={chartConfig}>
+          <BarChart
+            accessibilityLayer
+            style={{ height: "100%" }}
+            data={attendanceData}
+          >
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="day"

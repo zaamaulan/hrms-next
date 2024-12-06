@@ -21,11 +21,13 @@ interface TopbarProps {
 export const Topbar = ({ title, description }: TopbarProps) => {
   return (
     // pt-5 z-10 sticky top-0 -mt-10
-    <header className="flex w-full items-center justify-between bg-white px-[1.875rem] py-3.5">
+    <header className="flex w-full items-center justify-between bg-primary-foreground px-[1.875rem] py-3.5">
       <div>
-        <p className="text-xl font-semibold text-hrms-dark">{title}</p>
+        <p className="text-xl font-semibold text-secondary-foreground">
+          {title}
+        </p>
         {description && (
-          <p className="text-sm font-normal text-hrms-gray">{description}</p>
+          <p className="textsm font-normal text-secondary">{description}</p>
         )}
         {/* {breadcrumbs} */}
       </div>
@@ -37,16 +39,18 @@ export const Topbar = ({ title, description }: TopbarProps) => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
-              variant="ghost"
-              className="inline-flex items-center gap-x-2 rounded-[10px] border border-hrms-gray/25 p-1 hover:bg-hrms-gray/10"
+              variant="outline"
+              className="inline-flex items-center gap-x-2 rounded-[10px] p-1"
             >
               <Avatar className="h-full rounded-lg">
                 <AvatarImage src="https://github.com/shadcn.png" alt="avatar" />
                 <AvatarFallback>HR</AvatarFallback>
               </Avatar>
               <div className="text-left">
-                <p className="font-semibold text-hrms-dark">Robert Allen</p>
-                <p className="text-xs font-normal text-hrms-gray">HR Manager</p>
+                <p className="font-semibold text-secondary-foreground">
+                  Robert Allen
+                </p>
+                <p className="text-xs font-normal text-secondary">HR Manager</p>
               </div>
               <ChevronDown className="mx-2 size-5" />
             </Button>

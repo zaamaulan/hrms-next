@@ -1,5 +1,5 @@
 export const EmployeeStroke = ({
-  className = "text-hrms-dark",
+  className = "text-secondary-foreground",
 }: {
   className?: string;
 }) => (

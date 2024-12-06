@@ -6,7 +6,7 @@ export const DashboardSummary = () => {
     <div className="grid grid-cols-2 gap-5">
       <SummaryCard
         title="Total Employee"
-        icon={<EmployeeStroke className="text-hrms-primary" />}
+        icon={<EmployeeStroke className="text-primary" />}
       >
         <p className="text-3xl font-bold leading-10">560</p>
         <div className="flex items-center rounded-[5px] bg-green-400/20 p-1 pr-2 text-emerald-400">
@@ -16,7 +16,7 @@ export const DashboardSummary = () => {
       </SummaryCard>
       <SummaryCard
         title="Total Applicant"
-        icon={<EmployeeStroke className="text-hrms-primary" />}
+        icon={<EmployeeStroke className="text-primary" />}
       >
         <p className="text-3xl font-bold leading-10">1050</p>
         <div className="flex items-center rounded-[5px] bg-green-400/20 p-1 pr-2 text-emerald-400">
@@ -26,7 +26,7 @@ export const DashboardSummary = () => {
       </SummaryCard>
       <SummaryCard
         title="Today Attendance"
-        icon={<EmployeeStroke className="text-hrms-primary" />}
+        icon={<EmployeeStroke className="text-primary" />}
       >
         <p className="text-3xl font-bold leading-10">470</p>
         <div className="flex items-center rounded-[5px] bg-red-400/20 p-1 pr-2 text-red-400">
@@ -36,7 +36,7 @@ export const DashboardSummary = () => {
       </SummaryCard>
       <SummaryCard
         title="Total Projects"
-        icon={<EmployeeStroke className="text-hrms-primary" />}
+        icon={<EmployeeStroke className="text-primary" />}
       >
         <p className="text-3xl font-bold leading-10">250</p>
         <div className="flex items-center rounded-[5px] bg-green-400/20 p-1 pr-2 text-emerald-400">

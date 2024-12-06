@@ -20,8 +20,7 @@ function Calendar({
       showOutsideDays={showOutsideDays}
       className={cn("", className)}
       classNames={{
-        months:
-          "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
+        months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         month: "space-y-5 flex-1",
         caption: "flex justify-center pt-1 relative items-center",
         caption_label: "text-sm font-semibold !text-base",
@@ -31,9 +30,9 @@ function Calendar({
           "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100",
         ),
         nav_button_previous:
-          "absolute left-1 !bg-hrms-primary hover:!bg-hrms-primary/90 !opacity-100 !text-white !rounded-lg !h-9 !w-9",
+          "absolute left-1 !bg-primary hover:!bg-primary/90 !opacity-100 !text-primary-foreground !rounded-lg !h-9 !w-9",
         nav_button_next:
-          "absolute right-1 !bg-hrms-primary hover:!bg-hrms-primary/90 !opacity-100 !text-white !rounded-lg !h-9 !w-9",
+          "absolute right-1 !bg-primary hover:!bg-primary/90 !opacity-100 !text-primary-foreground !rounded-lg !h-9 !w-9",
         table: "w-full border-collapse space-y-1",
         head_row: "flex justify-between mb-2",
         head_cell:
@@ -52,7 +51,7 @@ function Calendar({
         day_range_start: "day-range-start",
         day_range_end: "day-range-end",
         day_selected:
-          "bg-hrms-primary text-primary-foreground hover:bg-hrms-primary hover:text-primary-foreground focus:bg-hrms-primary focus:text-primary-foreground",
+          "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
         day_today: "bg-accent text-accent-foreground",
         day_outside:
           "day-outside text-muted-foreground aria-selected:bg-accent/50 aria-selected:text-muted-foreground",

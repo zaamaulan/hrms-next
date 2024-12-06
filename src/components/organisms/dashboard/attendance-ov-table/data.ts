@@ -15,7 +15,7 @@ export const data: Attendance[] = [
     designation: "Project Manager",
     type: "OFFICE",
     checkIn: "08:45 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "3",
@@ -31,7 +31,7 @@ export const data: Attendance[] = [
     designation: "Data Analyst",
     type: "REMOTE",
     checkIn: "09:30 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "5",
@@ -47,7 +47,7 @@ export const data: Attendance[] = [
     designation: "HR Manager",
     type: "REMOTE",
     checkIn: "09:00 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "7",
@@ -63,7 +63,7 @@ export const data: Attendance[] = [
     designation: "Sales Representative",
     type: "REMOTE",
     checkIn: "09:10 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "9",
@@ -79,7 +79,7 @@ export const data: Attendance[] = [
     designation: "Graphic Designer",
     type: "REMOTE",
     checkIn: "09:25 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "11",
@@ -95,7 +95,7 @@ export const data: Attendance[] = [
     designation: "Customer Support Specialist",
     type: "REMOTE",
     checkIn: "09:30 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "13",
@@ -111,7 +111,7 @@ export const data: Attendance[] = [
     designation: "Data Analyst",
     type: "REMOTE",
     checkIn: "09:10 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "15",
@@ -127,7 +127,7 @@ export const data: Attendance[] = [
     designation: "Product Manager",
     type: "REMOTE",
     checkIn: "09:25 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "17",
@@ -143,7 +143,7 @@ export const data: Attendance[] = [
     designation: "Sales Manager",
     type: "REMOTE",
     checkIn: "09:30 AM",
-    status: "ON TIME",
+    status: "ON_TIME",
   },
   {
     id: "19",
@@ -159,14 +159,6 @@ export const data: Attendance[] = [
     designation: "IT Project Manager",
     type: "REMOTE",
     checkIn: "09:10 AM",
-    status: "ON TIME",
-  },
-  {
-    id: "21",
-    employeeName: "Jessica Martin",
-    designation: "Accountant",
-    type: "OFFICE",
-    checkIn: "09:20 AM",
-    status: "LATE",
+    status: "ON_TIME",
   },
 ];

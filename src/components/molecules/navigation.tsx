@@ -96,16 +96,15 @@ export const Navigation = () => {
               <div
                 className={cn(
                   "w-[3px] rounded-full",
-                  active ? "bg-hrms-primary" : "bg-transparent",
+                  active ? "bg-primary" : "bg-transparent",
                 )}
               />
 
               <Link
                 href={menu.href}
                 className={cn(
-                  "flex w-full gap-x-4 rounded-r-lg px-5 py-3 font-normal text-hrms-dark",
-                  active &&
-                    "!border-hrms-primary bg-hrms-primary/15 text-hrms-primary",
+                  "flex w-full gap-x-4 rounded-r-lg px-5 py-3 font-normal text-secondary-foreground",
+                  active && "!border-hrms-primary bg-primary/15 text-primary",
                 )}
               >
                 <Icon />

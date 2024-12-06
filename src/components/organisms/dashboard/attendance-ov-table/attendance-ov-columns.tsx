@@ -12,7 +12,7 @@ export type Attendance = {
   designation: string;
   type: "REMOTE" | "OFFICE";
   checkIn: string;
-  status: "LATE" | "ON TIME";
+  status: "LATE" | "ON_TIME";
 };
 
 export const attendanceCollumns: ColumnDef<Attendance>[] = [
