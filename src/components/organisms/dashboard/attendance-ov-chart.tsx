@@ -20,6 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { memo } from "react";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -92,6 +93,10 @@ const chartConfig = {
 
 const filterData = [
   {
+    value: "today",
+    label: "Today",
+  },
+  {
     value: "day",
     label: "Day",
   },
@@ -103,26 +108,26 @@ const filterData = [
     value: "month",
     label: "Month",
   },
-  {
-    value: "quarter",
-    label: "Quarter",
-  },
+  // {
+  //   value: "quarter",
+  //   label: "Quarter",
+  // },
   {
     value: "year",
     label: "Year",
   },
 ];
 
-const AttendanceOVChart = () => {
+const AttendanceOVChart = memo(() => {
   return (
-    <Card>
+    <Card className="h-full">
       <CardHeader className="flex flex-row items-center justify-between p-5">
         <CardTitle className="text-lg font-semibold">
           Attendance Overview
         </CardTitle>
-        <Select defaultValue="day">
+        <Select defaultValue="today">
           <SelectTrigger className="flex w-fit gap-x-2">
-            <SelectValue placeholder="day" />
+            <SelectValue placeholder="today" />
           </SelectTrigger>
           <SelectContent>
             {filterData.map((item) => (
@@ -134,8 +139,8 @@ const AttendanceOVChart = () => {
         </Select>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={attendanceData}>
+        <ChartContainer  config={chartConfig}>
+          <BarChart accessibilityLayer style={{ height: "100%" }} data={attendanceData}>
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="day"
@@ -154,26 +159,23 @@ const AttendanceOVChart = () => {
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <ChartLegend content={<ChartLegendContent  />} />
+            <ChartLegend content={<ChartLegendContent />} />
             <Bar
               dataKey="attendance"
-
               fill="var(--color-attendance)"
-              radius={[5,5,2,2]}
+              radius={[5, 5, 2, 2]}
               barSize={16}
             />
             <Bar
               dataKey="productivity"
-
               fill="var(--color-productivity)"
-              radius={[5,5,2,2]}
+              radius={[5, 5, 2, 2]}
               barSize={16}
             />
             <Bar
               dataKey="absence"
-
               fill="var(--color-absence)"
-              radius={[5,5,2,2]}
+              radius={[5, 5, 2, 2]}
               barSize={16}
             />
           </BarChart>
@@ -181,6 +183,6 @@ const AttendanceOVChart = () => {
       </CardContent>
     </Card>
   );
-};
+});
 
 export default AttendanceOVChart;

@@ -1,5 +1,5 @@
 import { Arrow, EmployeeStroke } from "@/components/atoms/icons";
-import { SummaryCard } from "@/components/atoms/summary-card";
+import { SummaryCard } from "@/components/molecules/summary-card";
 
 export const DashboardSummary = () => {
   return (

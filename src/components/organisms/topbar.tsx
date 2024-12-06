@@ -1,9 +1,16 @@
-import React from "react";
-import { Search } from "../molecules/search";
-import { Button } from "../ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { ChevronDown } from "lucide-react";
+import React from "react";
 import { Notification } from "../atoms/icons";
+import { Search } from "../molecules/search";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Button } from "../ui/button";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface TopbarProps {
   title: string;
@@ -27,17 +34,28 @@ export const Topbar = ({ title, description }: TopbarProps) => {
         <Button size="icon" variant="ghost" className="bg-accent">
           <Notification />
         </Button>
-        <div className="inline-flex items-center gap-x-2 rounded-[10px] border border-hrms-gray/25 p-1">
-          <Avatar className="h-full rounded-lg">
-            <AvatarImage src="https://github.com/shadcn.png" alt="avatar" />
-            <AvatarFallback>HR</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="font-semibold text-hrms-dark">Robert Allen</p>
-            <p className="text-xs font-normal text-hrms-gray">HR Manager</p>
-          </div>
-          <ChevronDown className="mx-2 size-5" />
-        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="ghost"
+              className="inline-flex items-center gap-x-2 rounded-[10px] border border-hrms-gray/25 p-1 hover:bg-hrms-gray/10"
+            >
+              <Avatar className="h-full rounded-lg">
+                <AvatarImage src="https://github.com/shadcn.png" alt="avatar" />
+                <AvatarFallback>HR</AvatarFallback>
+              </Avatar>
+              <div className="text-left">
+                <p className="font-semibold text-hrms-dark">Robert Allen</p>
+                <p className="text-xs font-normal text-hrms-gray">HR Manager</p>
+              </div>
+              <ChevronDown className="mx-2 size-5" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-40">
+            <DropdownMenuItem>My Profile</DropdownMenuItem>
+            <DropdownMenuItem className="text-red-400">Logout</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   );
