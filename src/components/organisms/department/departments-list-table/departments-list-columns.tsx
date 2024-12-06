@@ -21,7 +21,6 @@ export type Employee = {
   id: string;
   employeeName: string;
   employeeId: string;
-  department: string;
   designation: string;
   type: "REMOTE" | "OFFICE";
   status:
@@ -42,7 +41,11 @@ const statusClasses: Record<Employee["status"], string> = {
   PERMANENT: "bg-gray-400/10 text-gray-400",
 };
 
-export const employeeCollumns: ColumnDef<Employee>[] = [
+export const departmentCollumns: ColumnDef<Employee>[] = [
+  {
+    accessorKey: "employeeId",
+    header: "Employee ID",
+  },
   {
     accessorKey: "employeeName",
     header: "Employee Name",
@@ -55,14 +58,6 @@ export const employeeCollumns: ColumnDef<Employee>[] = [
         <p className="">{row.getValue("employeeName")}</p>
       </div>
     ),
-  },
-  {
-    accessorKey: "employeeId",
-    header: "Employee ID",
-  },
-  {
-    accessorKey: "department",
-    header: "Department",
   },
   {
     accessorKey: "designation",

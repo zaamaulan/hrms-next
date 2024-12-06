@@ -35,7 +35,7 @@ import { useState } from "react";
 import { PageSize } from "@/components/molecules/page-size";
 
 import { PaginationButton } from "@/components/molecules/pagination-button";
-import { EmployeesListFilter } from "./employees-list-filter";
+import { DepartmentsListFilter } from "./departments-list-filter";
 
 interface DataTableProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -43,7 +43,7 @@ interface DataTableProps<TData, TValue>
   data: TData[];
 }
 
-export const EmployeesListTable = <TData, TValue>({
+export const DepartmentsListTable = <TData, TValue>({
   columns,
   data,
   className,
@@ -97,7 +97,7 @@ export const EmployeesListTable = <TData, TValue>({
               <span>Add New Employee</span>
             </Button>
           </Link>
-          <EmployeesListFilter />
+          <DepartmentsListFilter />
         </div>
       </CardHeader>
       <CardContent className="p-5 pt-0">

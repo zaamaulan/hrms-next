@@ -1,4 +1,4 @@
-export const DepartementStroke = () => (
+export const DepartmentStroke = () => (
   <svg
     width="24"
     height="24"
@@ -19,7 +19,7 @@ export const DepartementStroke = () => (
   </svg>
 );
 
-export const DepartementSolid = () => (
+export const DepartmentSolid = () => (
   <svg
     width="24"
     height="24"

@@ -1,11 +1,11 @@
 "use client";
 
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import * as React from "react";
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 
-import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
@@ -46,7 +46,7 @@ function Calendar({
         ),
         day: cn(
           buttonVariants({ variant: "ghost" }),
-          "h-11 w-11 p-0 font-normal text-base aria-selected:opacity-100 !rounded-[10px]",
+          "h-11 w-11 p-0 font-normal text-base  aria-selected:opacity-100 !rounded-[10px]",
         ),
         day_range_start: "day-range-start",
         day_range_end: "day-range-end",
@@ -62,8 +62,8 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: ({ ...props }) => <ArrowLeft className="!h-4 !w-4" />,
-        IconRight: ({ ...props }) => <ArrowRight className="!h-4 !w-4" />,
+        IconLeft: () => <ArrowLeft className="!h-4 !w-4" />,
+        IconRight: () => <ArrowRight className="!h-4 !w-4" />,
       }}
       {...props}
     />

@@ -4,22 +4,22 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  DashboardSolid,
-  DashboardStroke,
-  DepartementSolid,
-  DepartementStroke,
-  EmployeeSolid,
-  EmployeeStroke,
   AttedanceSolid,
   AttedanceStroke,
-  PayrollSolid,
-  PayrollStroke,
-  JobSolid,
-  JobStroke,
   CandidateSolid,
   CandidateStroke,
+  DashboardSolid,
+  DashboardStroke,
+  DepartmentSolid,
+  DepartmentStroke,
+  EmployeeSolid,
+  EmployeeStroke,
   HolidaySolid,
   HolidayStroke,
+  JobSolid,
+  JobStroke,
+  PayrollSolid,
+  PayrollStroke,
   SettingSolid,
   SettingStroke,
 } from "../atoms/icons";
@@ -39,9 +39,9 @@ const menus = [
   },
   {
     name: "All Departments",
-    href: "/departements",
-    iconStroke: DepartementStroke,
-    iconSolid: DepartementSolid,
+    href: "/departments",
+    iconStroke: DepartmentStroke,
+    iconSolid: DepartmentSolid,
   },
   {
     name: "Attendance",
@@ -88,7 +88,7 @@ export const Navigation = () => {
     <nav>
       <ul className="flex flex-col gap-y-2.5">
         {menus.map((menu, index) => {
-          const active = pathname === menu.href;
+          const active = menu.href === '/' ? pathname === '/' : pathname.startsWith(menu.href);
           const Icon = active ? menu.iconSolid : menu.iconStroke;
 
           return (

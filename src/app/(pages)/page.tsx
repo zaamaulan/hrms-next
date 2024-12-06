@@ -9,9 +9,13 @@ import { ScheduleCalendar } from "@/components/organisms/dashboard/schedule-cale
 
 const DashboardPage = () => {
   return (
-    <Layout title="Hello Robert 👋🏻" description="Good Morning" className="flex flex-col gap-5">
-      <div className="grid grid-cols-[1fr_auto] gap-5 h-fit relative">
-        <div className="flex flex-col gap-y-5 h-full flex-grow flex-1">
+    <Layout
+      title="Hello Robert 👋🏻"
+      description="Good Morning"
+      className="flex flex-col gap-5"
+    >
+      <div className="relative grid h-fit grid-cols-[1fr_auto] gap-5">
+        <div className="flex h-full flex-1 flex-grow flex-col gap-y-5">
           <DashboardSummary />
           <AttendanceOVChart />
         </div>

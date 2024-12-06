@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import React from "react";
+import { Fragment } from "react";
 import { Notification } from "../atoms/icons";
 import { Search } from "../molecules/search";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
@@ -12,13 +12,25 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import Link from "next/link";
+
 interface TopbarProps {
   title: string;
   description?: string;
-  breadcrumbs?: React.ReactNode;
+  breadcrumbs?: {
+    label: string;
+    href: string;
+  }[];
 }
 
-export const Topbar = ({ title, description }: TopbarProps) => {
+export const Topbar = ({ title, description, breadcrumbs }: TopbarProps) => {
   return (
     // pt-5 z-10 sticky top-0 -mt-10
     <header className="flex w-full items-center justify-between bg-primary-foreground px-[1.875rem] py-3.5">
@@ -29,7 +41,22 @@ export const Topbar = ({ title, description }: TopbarProps) => {
         {description && (
           <p className="textsm font-normal text-secondary">{description}</p>
         )}
-        {/* {breadcrumbs} */}
+        {breadcrumbs && (
+          <Breadcrumb>
+            <BreadcrumbList>
+              {breadcrumbs?.map((breadcrumb, index) => (
+                <Fragment key={index}>
+                  <BreadcrumbItem className="text-base">
+                    <BreadcrumbLink asChild>
+                      <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
+                </Fragment>
+              ))}
+            </BreadcrumbList>
+          </Breadcrumb>
+        )}
       </div>
       <div className="flex items-center gap-x-5">
         <Search placeholder="Search" />

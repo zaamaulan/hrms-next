@@ -1,15 +1,15 @@
 "use client";
 
-import { AddCircleIcon } from "@/components/atoms/icon";
+import { FilterIcon } from "@/components/atoms/icon";
 import { Modal } from "@/components/atoms/modal";
 import { Search } from "@/components/molecules/search";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 
-const departements = [
+const departments = [
   { value: "Design", label: "Design" },
   { value: "Java", label: "Java" },
   { value: "HR", label: "HR" },
@@ -28,7 +28,7 @@ export const EmployeesListFilter = () => {
   return (
     <Fragment>
       <Button variant="outline" onClick={() => setOpen(!open)}>
-        <AddCircleIcon className="text-secondary-foreground" />
+        <FilterIcon className="text-secondary-foreground" />
         <span>Filter</span>
       </Button>
 
@@ -41,15 +41,15 @@ export const EmployeesListFilter = () => {
       >
         <Search placeholder="Search" />
         <div className="flex flex-col gap-y-4">
-          <p className="font-semibold">Departement</p>
+          <p className="font-semibold">Department</p>
           <div className="grid grid-cols-2 gap-x-5 gap-y-2.5">
-            {departements.map((departement) => (
+            {departments.map((department) => (
               <Label
-                key={departement.value}
+                key={department.value}
                 className="inline-flex cursor-pointer items-center gap-x-2.5 font-normal"
               >
-                <Checkbox name={departement.value} key={departement.value} />
-                {departement.label}
+                <Checkbox name={department.value} key={department.value} />
+                {department.label}
               </Label>
             ))}
           </div>
