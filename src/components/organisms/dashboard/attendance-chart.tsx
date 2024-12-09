@@ -14,22 +14,10 @@ import {
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { memo } from "react";
-
-const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-];
 
 const attendanceData = [
   {
@@ -108,17 +96,13 @@ const filterData = [
     value: "month",
     label: "Month",
   },
-  // {
-  //   value: "quarter",
-  //   label: "Quarter",
-  // },
   {
     value: "year",
     label: "Year",
   },
 ];
 
-const AttendanceOVChart = memo(() => {
+export const AttendanceChart = () => {
   return (
     <Card className="h-full">
       <CardHeader className="flex flex-row items-center justify-between p-5">
@@ -140,11 +124,7 @@ const AttendanceOVChart = memo(() => {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <BarChart
-            accessibilityLayer
-            style={{ height: "100%" }}
-            data={attendanceData}
-          >
+          <BarChart accessibilityLayer data={attendanceData}>
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="day"
@@ -168,25 +148,23 @@ const AttendanceOVChart = memo(() => {
               dataKey="attendance"
               fill="var(--color-attendance)"
               radius={[5, 5, 2, 2]}
-              barSize={16}
+              barSize={22}
             />
             <Bar
               dataKey="productivity"
               fill="var(--color-productivity)"
               radius={[5, 5, 2, 2]}
-              barSize={16}
+              barSize={22}
             />
             <Bar
               dataKey="absence"
               fill="var(--color-absence)"
               radius={[5, 5, 2, 2]}
-              barSize={16}
+              barSize={22}
             />
           </BarChart>
         </ChartContainer>
       </CardContent>
     </Card>
   );
-});
-
-export default AttendanceOVChart;
+};

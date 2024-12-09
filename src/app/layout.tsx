@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
-import { Sidebar } from "@/components/organisms/sidebar";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -28,12 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lexend.className} antialiased`}>
-        <div className="min-h-screen flex">
-          <Sidebar />
-          {children}
-        </div>
-      </body>
+      <body className={`${lexend.className} antialiased`}>{children}</body>
     </html>
   );
 }

@@ -34,10 +34,10 @@ function Calendar({
         nav_button_next:
           "absolute right-1 !bg-primary hover:!bg-primary/90 !opacity-100 !text-primary-foreground !rounded-lg !h-9 !w-9",
         table: "w-full border-collapse space-y-1",
-        head_row: "flex justify-between mb-2",
+        head_row: "flex justify-between",
         head_cell:
           "text-muted-foreground rounded-md w-8 font-normal text-[0.8rem] w-11",
-        row: "flex w-full  justify-between",
+        row: "flex w-full  justify-between mt-2",
         cell: cn(
           "relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
           props.mode === "range"

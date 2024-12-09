@@ -3,7 +3,7 @@ import React from 'react'
 
 const PayrollPage = () => {
   return (
-    <Layout title="Hello Robert 👋🏻" description="Good Morning">
+    <Layout title="Payroll" description="All Employee Payroll">
     Lorem, ipsum.
   </Layout>
   )

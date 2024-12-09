@@ -1,5 +1,7 @@
+import { DateRange } from "react-day-picker";
 import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
+import { normalizeDate } from "@/lib/utils";
 const schedules = Array.from({ length: 10 }).map((_, i) => ({
   date: Intl.DateTimeFormat("en-US", {
     weekday: "long",
@@ -31,21 +33,40 @@ const schedules = Array.from({ length: 10 }).map((_, i) => ({
   })),
 }));
 
-export const ScheduleList = () => {
+interface ScheduleListProps {
+  selectedDateRange?: DateRange;
+}
+
+export const ScheduleList = ({ selectedDateRange }: ScheduleListProps) => {
+  const filteredSchedules = schedules.filter((schedule) => {
+    const scheduleDate = new Date(schedule.date);
+    const normalizedScheduleDate = normalizeDate(scheduleDate);
+
+    if (selectedDateRange?.from && selectedDateRange?.to) {
+      const normalizedFrom = normalizeDate(selectedDateRange.from);
+      const normalizedTo = normalizeDate(selectedDateRange.to);
+
+      return (
+        normalizedScheduleDate >= normalizedFrom &&
+        normalizedScheduleDate <= normalizedTo
+      );
+    }
+  });
+
   return (
     <ScrollArea
       className="absolute flex max-h-[calc(100vh-20rem)] flex-col overflow-y-auto"
       type="scroll"
     >
       <ul className="mr-4 flex flex-col gap-y-5">
-        {schedules.map((schedule) => (
+        {filteredSchedules.map((schedule) => (
           <li key={schedule.date} className="flex flex-col gap-y-5">
             <p className="text-secondary-foreground">{schedule.date}</p>
             <ul className="flex flex-col gap-y-5">
               {schedule.events.map((event) => (
                 <li
                   key={event.time}
-                  className="grid h-full grid-cols-[.6fr_auto_1fr] items-center gap-x-5"
+                  className="grid h-full grid-cols-[.5fr_auto_1fr] items-center gap-x-2.5"
                 >
                   <p className="text-xl font-semibold">{event.time}</p>
                   <Separator
@@ -54,7 +75,7 @@ export const ScheduleList = () => {
                   />
                   <div>
                     <p className="text-sm">{event.role}</p>
-                    <p className="font-semibold">{event.task}</p>
+                    <p className="max-w-44 font-semibold">{event.task}</p>
                   </div>
                 </li>
               ))}

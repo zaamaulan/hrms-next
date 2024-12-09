@@ -33,7 +33,7 @@ export const ScheduleCalendar = () => {
           onSelect={setDate}
         />
         <Separator />
-        <ScheduleList />
+        <ScheduleList selectedDateRange={date}/>
       </CardContent>
     </Card>
   );

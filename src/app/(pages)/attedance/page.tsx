@@ -1,10 +1,10 @@
+import { AttedanceTableCard } from "@/components/organisms/attendance-table-card";
 import { Layout } from "@/components/templates/layout";
-import React from "react";
 
 const AttedancePage = () => {
   return (
-    <Layout title="Hello Robert 👋🏻" description="Good Morning">
-      Lorem, ipsum.
+    <Layout title="Attendance" description="All Employee Attendance">
+      <AttedanceTableCard />
     </Layout>
   );
 };

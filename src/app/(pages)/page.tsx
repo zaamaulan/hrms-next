@@ -1,11 +1,8 @@
-import AttendanceOVChart from "@/components/organisms/dashboard/attendance-ov-chart";
-import { AttendanceOVTable } from "@/components/organisms/dashboard/attendance-ov-table/attendance-ov-table";
+import { AttendanceChart } from "@/components/organisms/dashboard/attendance-chart";
+import { AttedanceOVTableCard } from "@/components/organisms/dashboard/attendance-ov-table-card";
 import { DashboardSummary } from "@/components/organisms/dashboard/dashboard-summary";
-import { Layout } from "@/components/templates/layout";
-import React from "react";
-import { data } from "@/components/organisms/dashboard/attendance-ov-table/data";
-import { attendanceCollumns } from "@/components/organisms/dashboard/attendance-ov-table/attendance-ov-columns";
 import { ScheduleCalendar } from "@/components/organisms/dashboard/schedule-calendar";
+import { Layout } from "@/components/templates/layout";
 
 const DashboardPage = () => {
   return (
@@ -17,11 +14,11 @@ const DashboardPage = () => {
       <div className="relative grid h-fit grid-cols-[1fr_auto] gap-5">
         <div className="flex h-full flex-1 flex-grow flex-col gap-y-5">
           <DashboardSummary />
-          <AttendanceOVChart />
+          <AttendanceChart />
         </div>
         <ScheduleCalendar />
       </div>
-      <AttendanceOVTable data={data.slice(0, 7)} columns={attendanceCollumns} />
+      <AttedanceOVTableCard />
     </Layout>
   );
 };

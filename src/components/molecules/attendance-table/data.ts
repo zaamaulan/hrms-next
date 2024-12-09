@@ -1,4 +1,4 @@
-import { Attendance } from "./attendance-ov-columns";
+import { Attendance } from "./attendance-columns";
 
 export const data: Attendance[] = [
   {

@@ -15,7 +15,7 @@ export const Search = ({ placeholder = "Search" }: SearchProps) => {
   };
 
   return (
-    <div className="relative flex flex-1 flex-shrink-0">
+    <div className="relative flex flex-1 flex-shrink-0  w-72">
       <Label htmlFor="search" className="sr-only">
         Search
       </Label>
