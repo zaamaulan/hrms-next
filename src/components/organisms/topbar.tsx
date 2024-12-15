@@ -32,7 +32,6 @@ interface TopbarProps {
 
 export const Topbar = ({ title, description, breadcrumbs }: TopbarProps) => {
   return (
-    // pt-5 z-10 sticky top-0 -mt-10
     <header className="flex w-full items-center justify-between bg-primary-foreground px-[1.875rem] py-3.5">
       <div>
         <p className="text-xl font-semibold text-secondary-foreground">
@@ -60,9 +59,11 @@ export const Topbar = ({ title, description, breadcrumbs }: TopbarProps) => {
       </div>
       <div className="flex items-center gap-x-5">
         <Search placeholder="Search" />
-        <Button size="icon" variant="ghost" className="bg-accent">
-          <Notification />
-        </Button>
+        <Link href="/notifications">
+          <Button size="icon" variant="ghost" className="bg-accent">
+            <Notification />
+          </Button>
+        </Link>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
