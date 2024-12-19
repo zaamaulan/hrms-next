@@ -10,7 +10,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-import { ExportIcon } from "@/components/atoms/icon";
+import { AddCircleIcon } from "@/components/atoms/icon";
 import { Search as SearchIcon } from "@/components/atoms/icons";
 import { Button } from "@/components/ui/button";
 import {
@@ -31,9 +31,8 @@ import {
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
-import { PageSize } from "@/components/molecules/page-size";
-
-import { PaginationButton } from "@/components/molecules/pagination-button";
+import { BadgeDemo } from "@/components/molecules/badge";
+import Link from "next/link";
 
 interface DataTableProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -41,7 +40,7 @@ interface DataTableProps<TData, TValue>
   data: TData[];
 }
 
-export const PayrollListTable = <TData, TValue>({
+export const HolidayListTable = <TData, TValue>({
   columns,
   data,
   className,
@@ -74,12 +73,12 @@ export const PayrollListTable = <TData, TValue>({
           <Input
             placeholder="Search"
             value={
-              (table.getColumn("employeeName")?.getFilterValue() as string) ??
+              (table.getColumn("holidayName")?.getFilterValue() as string) ??
               ""
             }
             onChange={(event) =>
               table
-                .getColumn("employeeName")
+                .getColumn("holidayName")
                 ?.setFilterValue(event.target.value)
             }
             className="max-w-sm rounded-[10px] border border-hrms-gray/25 pl-12 focus:!ring-hrms-gray/40"
@@ -88,10 +87,12 @@ export const PayrollListTable = <TData, TValue>({
         </div>
 
         <div className="inline-flex gap-x-5">
-          <Button>
-            <ExportIcon />
-            <span>Export</span>
-          </Button>
+          <Link href="/holidays/add">
+            <Button>
+              <AddCircleIcon />
+              <span>Add New Holiday</span>
+            </Button>
+          </Link>
         </div>
       </CardHeader>
       <CardContent className="p-5 pt-0">
@@ -148,12 +149,14 @@ export const PayrollListTable = <TData, TValue>({
           </TableBody>
         </Table>
       </CardContent>
-      <CardFooter className="flex items-center justify-between p-5 !pt-0">
-        <PageSize
+      <CardFooter className="p-5 !pt-0">
+        {/* <PageSize
           pageSize={table.getState().pagination.pageSize}
           onChange={(value) => table.setPageSize(value)}
         />
-        <PaginationButton table={table} />
+        <PaginationButton table={table} /> */}
+        <BadgeDemo statusColor="bg-primary" label="Upcoming" />
+        <BadgeDemo statusColor="bg-secondary" label="Past Holidays" />
       </CardFooter>
     </Card>
   );
