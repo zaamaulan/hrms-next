@@ -5,8 +5,8 @@ import { DepartmentsListTable } from "@/components/organisms/department/departme
 import { Layout } from "@/components/templates/layout";
 import React from "react";
 
-const DepartmentDetailsPage = ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+const DepartmentDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
 
   const filteredData = departments.find((item) => item.id.toString() === id);
   const breadcrumbs = [

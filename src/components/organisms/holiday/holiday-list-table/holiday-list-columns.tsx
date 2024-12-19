@@ -4,7 +4,6 @@ import { Separator } from "@/components/ui/separator";
 import { ColumnDef } from "@tanstack/react-table";
 
 export type Holiday = {
-  id: string;
   date: string;
   day: string;
   holidayName: string;

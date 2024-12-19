@@ -2,6 +2,7 @@ import { Table } from "@tanstack/react-table";
 import { Button } from "../ui/button";
 
 interface PaginationButtonProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   table: Table<any>;
 }
 
